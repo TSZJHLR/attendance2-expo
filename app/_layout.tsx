@@ -5,6 +5,7 @@ import { StatusBar } from 'expo-status-bar';
 import 'react-native-reanimated';
 
 import { useColorScheme } from '@/hooks/useColorScheme';
+import { AuthProvider } from '../contexts/AuthContext';
 
 export default function RootLayout() {
   const colorScheme = useColorScheme();
@@ -18,12 +19,29 @@ export default function RootLayout() {
   }
 
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="+not-found" />
-      </Stack>
-      <StatusBar style="auto" />
-    </ThemeProvider>
+    <AuthProvider>
+      <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+        <Stack>
+          <Stack.Screen name="index" options={{ headerShown: false }} />
+          <Stack.Screen name="auth/index" options={{ headerShown: false }} />
+          <Stack.Screen name="auth/signup" options={{ headerShown: false }} />
+          <Stack.Screen name="auth/terms" options={{ headerShown: false }} />
+          <Stack.Screen name="auth/privacy" options={{ headerShown: false }} />
+          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+          <Stack.Screen name="+not-found" />
+          
+          {/* Screens */}
+          <Stack.Screen name="screens/1WelcomeScreen" options={{ headerShown: false }} />
+          <Stack.Screen name="screens/2.1Term&Condition" options={{ headerShown: false }} />
+          <Stack.Screen name="screens/2.2PrivatePolicy" options={{ headerShown: false }} />
+          <Stack.Screen name="screens/appliedLeave" options={{ headerShown: false }} />
+          
+          {/* Tabs Screens */}
+          <Stack.Screen name="(tabs)/dashboard" options={{ headerShown: false }} />
+          <Stack.Screen name="(tabs)/profile" options={{ headerShown: false }} />
+        </Stack>
+        <StatusBar style="auto" />
+      </ThemeProvider>
+    </AuthProvider>
   );
 }

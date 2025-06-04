@@ -1,0 +1,99 @@
+import React from 'react';
+import {
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  TouchableOpacity,
+} from 'react-native';
+
+const WelcomeScreen: React.FC = () => {
+  return (
+    <View style={styles.container}>
+      {/* Logo and Title */}
+      <View style={styles.header}>
+        {/* Placeholder for logo */}
+        <View style={styles.logoBox}>
+          <Text style={styles.logo}>🟪</Text>
+        </View>
+        <Text style={styles.title}>Scholars</Text>
+      </View>
+
+      {/* Handshake Image (replace with emoji or image later) */}
+      <View style={styles.handshakeContainer}>
+        <Text style={styles.handshake}>🤝🏿</Text>
+      </View>
+
+      {/* Tagline */}
+      <Text style={styles.mainText}>Learning Together,{"\n"}Growing Together</Text>
+      <Text style={styles.subText}>
+        Every school day is a step toward a brighter future{"\n"}attend, engage, and grow!
+      </Text>
+
+      {/* Arrow Button */}
+      <TouchableOpacity style={styles.arrowButton}>
+        <Text style={styles.arrow}>↑</Text>
+      </TouchableOpacity>
+    </View>
+  );
+};
+
+export default WelcomeScreen;
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#2C1C5F', // dark purple background
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingVertical: 40,
+  },
+  header: {
+    marginTop: 50,
+    alignItems: 'center',
+  },
+  logoBox: {
+    backgroundColor: '#fff',
+    padding: 8,
+    borderRadius: 8,
+    marginBottom: 6,
+  },
+  logo: {
+    fontSize: 20,
+  },
+  title: {
+    color: '#fff',
+    fontSize: 20,
+    fontWeight: '600',
+  },
+  handshakeContainer: {
+    marginTop: 40,
+  },
+  handshake: {
+    fontSize: 100,
+  },
+  mainText: {
+    color: '#fff',
+    fontSize: 22,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    marginTop: 20,
+  },
+  subText: {
+    color: '#ccc',
+    fontSize: 14,
+    textAlign: 'center',
+    paddingHorizontal: 24,
+    marginTop: 12,
+  },
+  arrowButton: {
+    backgroundColor: '#3D2C8D',
+    padding: 16,
+    borderRadius: 30,
+  },
+  arrow: {
+    color: '#fff',
+    fontSize: 20,
+    fontWeight: 'bold',
+  },
+});
